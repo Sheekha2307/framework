@@ -1,0 +1,11 @@
+Info: Amazon Scenario: Browser Launched successfully
+Info: Mask searched successfully
+Info: Buying first item
+Info: Checking out to cart
+Info: Entering personal details
+Info: Selecting delivery address
+Info: order placed
+Info: Amazon Scenario: Browser Launched successfully
+Info: Mask searched successfully
+Info: Buying first item
+Info: Amazon Scenario: Browser Launched successfully
