@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 
 import enums.DriverType;
 import enums.EnvironmentType;
@@ -47,7 +48,8 @@ public class WebDriverManager {
 		case FireFox : driver = new FirefoxDriver();
 		break;
 		case Chrome :
-			System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
+			io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+			//System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
 			driver = new ChromeDriver();
 		break;
 		case InternetExplorer : driver = new InternetExplorerDriver();

@@ -11,6 +11,7 @@ public class Home {
 	WebDriver driver;
 	
 	@FindBy(linkText="Sign in")private WebElement Sign_In;
+	
 	@FindBy(xpath="//*[@id='twotabsearchtextbox']") private WebElement Enter_Product;
 	@FindBy(xpath="//*[@value='Go']") private WebElement Go_Button;
 	@FindBy(xpath="//*[@class='s-main-slot s-result-list s-search-results sg-row']/div[3]//h2") private WebElement Select_Product;

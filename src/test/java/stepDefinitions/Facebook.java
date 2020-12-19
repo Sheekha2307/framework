@@ -39,6 +39,7 @@ public class Facebook {
 		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(),
 				TimeUnit.SECONDS);
 		LogHelper.logger(Hooks.scenarioName, LogHelper.LogStatus.Info+": "+"User is navigated to Home Page");
+	//	Reporter.addStepLog("Test-Reporter class1");
 	}
 
 	@When("^User enters \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -50,7 +51,7 @@ public class Facebook {
 		String password = arg2;
 		fbLoginObj1.loginPage(username, password);
 		LogHelper.logger(Hooks.scenarioName, LogHelper.LogStatus.Info+": "+"Credentials entered successfully");
-
+	//	Reporter.addStepLog("Test-Reporter class");
 	}
 
 	/*

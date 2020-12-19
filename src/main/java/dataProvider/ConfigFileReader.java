@@ -43,6 +43,14 @@ public class ConfigFileReader {
 	
 	public String getDriverPath()
 	{
+		/*
+		 * String chromeDriverLocation = System.getProperty("user.dir") +
+		 * "\\chromDriver\\chromedriver.exe";
+		 * 
+		 * //System.setProperty("webdriver.chrome.driver",
+		 * "C:\\Users\\IB\\Downloads\\chromDriver\\chromedriver.exe");
+		 * System.setProperty("webdriver.chrome.driver",chromeDriverLocation);
+		 */		
 		String driverPath = properties.getProperty("driverPath");
 		if(driverPath!=null) return driverPath;
 		else throw new RuntimeException("driverPath not specified in the Configuration.properties file");
@@ -94,4 +102,11 @@ public class ConfigFileReader {
 		else throw new RuntimeException("testDataResourcePath is not specified in the Configuration.properties file");
 		
 	}
+	public String getReportConfigPath(){
+		String reportConfigPath = properties.getProperty("reportConfigPath");
+		if(reportConfigPath!= null) return reportConfigPath;
+		else throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");		
+	}
+	
+	
 }

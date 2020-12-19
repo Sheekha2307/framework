@@ -11,11 +11,17 @@ import org.apache.commons.io.FileUtils;
 public class ScreenshotOnFailure {
 
 	public static void captureScreenshot(WebDriver driver, String TcName) throws IOException {
+		try
+		{
 		TakesScreenshot ts =(TakesScreenshot)driver;
 		File srcFile= ts.getScreenshotAs(OutputType.FILE);
 		File destFile = new File("./Screenshots/"+TcName+ ".png");
 		FileUtils.copyFile(srcFile, destFile);
-
+		}
+		catch (IOException e)
+		{
+			
+		}
 	}
 
 }

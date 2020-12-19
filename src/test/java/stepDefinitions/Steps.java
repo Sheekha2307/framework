@@ -4,9 +4,12 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.cucumber.listener.Reporter;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -17,6 +20,7 @@ import managers.WebDriverManager;
 import pageObject.Delivery;
 import pageObject.Home;
 import pageObject.login;
+import utility.Log;
 import utility.LogHelper;
 
 public class Steps {
@@ -27,6 +31,8 @@ public class Steps {
 	Home homeObj;
 	Delivery deliveryObj;
 	static WebDriverManager webDriverManagerObj;
+	//Logger log = Logger.getLogger(Steps.class);
+//	Logger log1 = Logger.getLogger("devpinoyLogger");
 	//static ConfigFileReader configFileReader1;
 	
 	/*
@@ -65,8 +71,22 @@ public class Steps {
 public void user_is_on_Amazon_Home_Page() throws Throwable {
 	webDriverManagerObj = new WebDriverManager();
 	driver =webDriverManagerObj.getDriver();
-	 driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());  //Open URl
+	Log.startTestCase("Amazon Home page");
+	driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationUrl()); //Open URl
+	Log.info("Opening Amazon URL");
 	  driver.manage().window().maximize();
+	  Reporter.addStepLog("********Reporter class1*********"); //logs inside the report
+		/*
+		 * log1.info("*******This is through log4j*******");
+		 * log1.warn("****Hey this is just warning******");
+		 * log1.fatal("*****Hey this is fatal message****");
+		 * log1.debug("********This is debug*************");
+		 */
+	  
+	  
+		LogHelper.logger(Hooks.scenarioName, LogHelper.LogStatus.Info+": "+"Amazon Scenario: 1Browser Launched successfully");
+//logs generated separately
+		
 	 driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
 	 pageObjectManager = new PageObjectManager(driver);
 	 homeObj = pageObjectManager.homeObjMethod();
@@ -75,7 +95,14 @@ public void user_is_on_Amazon_Home_Page() throws Throwable {
 	 driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
 	loginObj =pageObjectManager.loginObjMethod();
 	loginObj.loginpage();
+	Log.info("login successful");
+	Log.warn("*******This is warning log*******");
+	Log.error("*******This is error log*******");
+	Log.fatal("*******This is fatal log*******");
+	Log.debug("*******This is debug log*******");
+	Reporter.addStepLog("********Reporter class*********");
 	LogHelper.logger(Hooks.scenarioName, LogHelper.LogStatus.Info+": "+"Amazon Scenario: Browser Launched successfully");
+	Log.endTestCase("Amazon login page test case ends");
 }
 	 /*driver.findElement(By.id("ap_email")).sendKeys("9425104270");
 	 driver.findElement(By.id("continue")).click();

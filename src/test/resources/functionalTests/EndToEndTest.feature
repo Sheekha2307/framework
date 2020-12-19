@@ -1,4 +1,4 @@
-
+@EndtoEnd
 Feature: End to end test
 
 Scenario: User is able to login into Amazon application and buy product
